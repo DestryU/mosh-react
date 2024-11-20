@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styles from "./ListGroup.module.css"
+import {FaAnchor} from "react-icons/fa6"
 
 interface Props {
   items: string[];
@@ -12,10 +14,11 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
   return (
     <>
       <h1>{heading}</h1>
+      <FaAnchor size={100}/>
 
       {items.length === 0 && <p>No Items Found</p>}
 
-      <ul className="list-group">
+      <ul className={[styles.listGroup, styles.container].join(' ')}>
         {items.map((item, index) => (
           <li
             className={
